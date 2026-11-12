@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAHIBADHOO-FERRY | މަހިބަދޫ ފެރީ އަދި ކარგޯ ޝެޑިއުލް</title>
-<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: 'Noto Sans Thaana', Arial, sans-serif; background-color: #f4f7f6; color: #333; direction: rtl; line-height: 1.6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  .site-header { background: linear-gradient(135deg, #0077b6, #0096c7); color: white; text-align: center; padding: 30px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+  .site-header h1 { font-size: 2rem; margin-bottom: 10px; }
+  .site-header p { font-size: 1rem; opacity: 0.9; }
+  .filter-container { display: flex; justify-content: center; gap: 10px; margin: 25px 0; flex-wrap: wrap; }
+  .filter-btn { background-color: #fff; border: 2px solid #0077b6; color: #0077b6; padding: 8px 18px; font-family: 'Noto Sans Thaana', Arial, sans-serif; font-size: 0.95rem; border-radius: 20px; cursor: pointer; transition: all 0.3s ease; }
+  .filter-btn:hover, .filter-btn.active { background-color: #0077b6; color: white; }
+  .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .vessel-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.2s ease; display: flex; flex-direction: column; justify-content: space-between; }
+  .vessel-card:hover { transform: translateY(-5px); }
+  .card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 12px; margin-bottom: 15px; }
+  .card-header h3 { font-size: 1.2rem; color: #023e8a; }
+  .badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; font-weight: bold; }
+  .badge.active { background-color: #d8f3dc; color: #2d6a4f; }
+  .badge.loading { background-color: #fff3b0; color: #b7791f; }
+  .card-body p { margin-bottom: 8px; font-size: 0.95rem; }
+  .card-actions { display: flex; gap: 10px; margin-top: 15px; }
+  .btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: opacity 0.2s; }
+  .call-btn { background-color: #2d6a4f; color: white; }
+  .track-btn { background-color: #4ea8de; color: white; }
+  .btn:hover { opacity: 0.85; }
+  .site-footer { text-align: center; padding: 30px; margin-top: 40px; font-size: 0.9rem; color: #666; border-top: 1px solid #ddd; }
+</style>
+
     <!-- Google Fonts for Dhivehi / Clean Look -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thaana:wght@400;700&display=swap" rel="stylesheet">
 </head>
