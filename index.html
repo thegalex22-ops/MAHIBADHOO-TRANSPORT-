@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="dv" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHIBADHOO-FERRY | މަހިބަދޫ ފެރީ އަދި ކარგޯ ޝެޑިއުލް</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Dhivehi / Clean Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thaana:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <h1>🌊 މަހިބަދޫ ފެރީ އަދި ކარგޯ</h1>
+            <p>ރަށްރަށަށް ދަތուրކުރާ ފެރީ، ސްޕީޑްބޯޓު އަދި ކާގޯ އޮޑިދޯނިފަހަރުގެ ލައިވް ތާވަލު</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">ހުރިހާ ދަތުރުތައް</button>
+            <button class="filter-btn" data-filter="speedboat">ސްޕީޑްބޯޓު</button>
+            <button class="filter-btn" data-filter="cargo_ferry">ކާގޯ އަދި ފެރީ</button>
+        </div>
+
+        <!-- Vessel Cards Container -->
+        <div id="vessel-container" class="grid-container">
+            <!-- JavaScript މެދުވެරިކޮށް ކާޑުތައް މިތަނަށް އަރާނެއެވެ -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 MAHIBADHOO-FERRY. ހުރިހާ ހައްގެއްވެސް ރައްކާކުރެވިފައިވާ.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans Thaana', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    direction: rtl;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.site-header {
+    background: linear-gradient(135deg, #0077b6, #0096c7);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.site-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Filter Buttons */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #fff;
+    border: 2px solid #0077b6;
+    color: #0077b6;
+    padding: 8px 18px;
+    font-family: 'Noto Sans Thaana', Arial, sans-serif;
+    font-size: 0.95rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #0077b6;
+    color: white;
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Vessel Card */
+.vessel-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.vessel-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    font-size: 1.2rem;
+    color: #023e8a;
+}
+
+/* Status Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.badge.active {
+    background-color: #d8f3dc;
+    color: #2d6a4f;
+}
+
+.badge.loading {
+    background-color: #fff3b0;
+    color: #b7791f;
+}
+
+.card-body p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.call-btn {
+    background-color: #2d6a4f;
+    color: white;
+}
+
+.track-btn {
+    background-color: #4ea8de;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    font-size: 0.85rem;
+}
+// ފެރީ އަދި ކާގޯ ޑޭޓާ
+const vesselData = [
+    {
+        id: "hmhi-travels",
+        name: "އެޗް.އެމް.އެޗް.އައި ޓްރެވަލްސް (HMHI Travels)",
+        type: "cargo_ferry",
+        route: "މާލެ ⇄ މަހިބަދޫ",
+        status: "active",
+        statusText: "މިއަދު ދަތުރު އޮތް",
+        departureMale: "10:00",
+        departureMahibadhoo: "22:00",
+        jetty: "އާމިដުއި ޖެޓީ",
+        phone: "+9607000000"
+    },
+    {
+        id: "myna-speed",
+        name: "މައިނާ ސްޕީޑް (Myna Speed)",
+        type: "speedboat",
+        route: "މާލެ ⇄ މަހިބަދޫ",
+        status: "active",
+        statusText: "ޝެޑިއުލްކޮށްފައި",
+        departureMale: "16:00",
+        departureMahibadhoo: "07:00",
+        jetty: "ޓީ-ޖެޓީ",
+        phone: "+9607111111"
+    },
+    {
+        id: "verona",
+        name: "ވެރޯނާ (Verona)",
+        type: "cargo_ferry",
+        route: "މާލެ ⇄ މަހިބަދޫ ⇄ ދަންގެތި",
+        status: "loading",
+        statusText: "މިއަދު ލޯޑުކުރަނީ",
+        departureMale: "14:00",
+        departureMahibadhoo: "06:00",
+        jetty: "އެމް.އެމް.އެޗް ޖެޓީ",
+        phone: "+9607222222"
+    },
+    {
+        id: "haisam",
+        name: "ހައިސަމް (Haisam)",
+        type: "cargo_ferry",
+        route: "މާލެ ⇄ މަހިބަދޫ ⇄ އޮމަދޫ",
+        status: "active",
+        statusText: "މިއަދު ދަތުރު އޮތް",
+        departureMale: "11:00",
+        departureMahibadhoo: "21:00",
+        jetty: "ލޮނުޒިޔާރަތްކޮޅު ޖެޓީ",
+        phone: "+9607333333"
+    }
+];
+
+function displayVessels(filter = 'all') {
+    const container = document.getElementById('vessel-container');
+    container.innerHTML = '';
+
+    const filteredData = filter === 'all' 
+        ? vesselData 
+        : vesselData.filter(v => v.type === filter);
+
+    filteredData.forEach(vessel => {
+        const badgeClass = vessel.status === 'active' ? 'active' : 'loading';
+        
+        const card = document.createElement('div');
+        card.className = 'vessel-card';
+        card.innerHTML = `
+            <div>
+                <div class="card-header">
+                    <h3>${vessel.name}</h3>
+                    <span class="badge ${badgeClass}">${vessel.statusText}</span>
+                </div>
+                <div class="card-body">
+                    <p><strong>ރޫޓް:</strong> ${vessel.route}</p>
+                    <p><strong>މާލެއިން ފުރާ ގަޑި:</strong> ${vessel.departureMale}</p>
+                    <p><strong>މަހިބަދޫއިން ފުރާ ގަޑި:</strong> ${vessel.departureMahibadhoo}</p>
+                    <p><strong>ބަނދަރު / ޖެޓީ:</strong> ${vessel.jetty}</p>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="tel:${vessel.phone}" class="btn call-btn">📞 ގުޅާލުމަށް</a>
+                <a href="#" class="btn track-btn">📍 ލޮކޭޝަން</a>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// ފިލްޓަރ ބަޓަންތަކަށް އިވެންץް ލިސްޓަނަރ ލެއްވުން
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        const filter = e.target.getAttribute('data-filter');
+        displayVessels(filter);
+    });
+});
+
+// ފުރަތަމަ ވެބްސައިޓް ލޯޑުވާއިރު ހުރިހާ އެއްޗެއް ދެއްކުން
+displayVessels('all');
