@@ -1,0 +1,13 @@
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    // މިތަނުގައި ފޯމުގެ މަޢުލޫމާތު ސާވާ އަށް ނުވަތަ WhatsApp/Email އަށް ފޮނުވުމުގެ ކޯޑު ހިމަނައިދެވިދާނެއެވެ.
+    
+    document.getElementById('support-form').reset();
+    const successMsg = document.getElementById('form-success-msg');
+    successMsg.style.display = 'block';
+    
+    setTimeout(() => {
+        successMsg.style.display = 'none';
+    }, 4000);
+}
